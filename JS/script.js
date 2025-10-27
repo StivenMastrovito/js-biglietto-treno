@@ -7,26 +7,33 @@
 // Questo richiederà un minimo di ricerca.
 
 // INPUT
-const kmPercorrere = prompt("Quanti km vuoi percorrere?");
-parseInt(kmPercorrere);
+let kmPercorrere;
+do {
+    kmPercorrere = prompt("Quanti km vuoi percorrere?");
+    parseInt(kmPercorrere);
+} while (kmPercorrere < 5 || kmPercorrere > 10000);
 
-const etaUtente = prompt("Quanti anni hai?");
-parseInt(etaUtente);
+let etaUtente;
+do {
+    etaUtente = prompt("Quanti anni hai?");
+    parseInt(etaUtente);
+} while (etaUtente < 1 || etaUtente > 120);
+
 
 // OPERAZIONI LOGICHE
 let prezzo = kmPercorrere * 0.21;
 let prezzoScontato;
 
-if (etaUtente < 18){
-    let sconto = (prezzo * 20) / 100;    
+if (etaUtente < 18) {
+    let sconto = (prezzo * 20) / 100;
     prezzoScontato = prezzo - sconto;
-}else if ( etaUtente > 65){
-    let sconto = (prezzo * 40) / 100;    
+} else if (etaUtente > 65) {
+    let sconto = (prezzo * 40) / 100;
     prezzoScontato = prezzo - sconto;
-}else{
+} else {
     prezzoScontato = prezzo;
 }
+prezzoScontato.toFixed(2);
 
 // OUTPUT
-prezzoScontato.toFixed(2);
 console.log(`Il prezzo del tuo biglietto è di ${prezzoScontato}$`);
